@@ -1,0 +1,19 @@
+#visibilidad-0 {
+    padding: 10px;
+    font-family: 'Raleway', sans-serif;
+    background-color: rgb(30, 33, 58);
+}
+
+.valor-visibilidad {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+@media (min-width: 701px) and (max-width: 1120px) {
+
+    .valor-visibilidad {
+        font-size: 30px;
+        font-weight: 500;
+    }
+
+}

@@ -1,0 +1,1 @@
+{(((dataWeather && dataWeather.main.temp) - 273.15) * (VALUEM) + (VALUES)).toFixed(0)}
