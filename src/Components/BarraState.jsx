@@ -1,15 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useVisibility from './Service/useVisibility';
+import useGeoLocation from './Service/useGeoLocation';
 import Cloudbackground from "../../public/Cloud-background.png";
 import "./BarraState.css";
 
 function BarraState() {
 
   const BuscadorV = useVisibility(false);
+  const { current } = useGeoLocation();
+
+  
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+  const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+  const dayOfWeek = daysOfWeek[currentDate.getDay()];
+  const day = currentDate.getDate();
+  const month = months[currentDate.getMonth()];
+  const feelsLikeCelsius = (current?.main?.feels_like - 273.15).toFixed(0);
 
   function BuscadorX() {
-      console.log("funciona")
+
+    console.log(current)
+    console.log(feelsLikeCelsius);
   }
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentDate(new Date());
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []);
   
   return (
     <>
@@ -30,6 +51,7 @@ function BarraState() {
         </button>
       </div>
       <div
+        id="cintass"
         className="container d-flex justify-content-center align-items-center"
         style={{
           height: "35vh",
@@ -41,9 +63,7 @@ function BarraState() {
           alt="Cloud-background.png"
         />
         <img
-          //   src={`./weatherResources/${
-          //     dataWeather && dataWeather.weather[0].main
-          //   }.png`}
+          src={`../../public/${current?.weather[0]?.main}.png`}
           className="tiempo-Icon"
           alt="Weather.png"
         />
@@ -51,18 +71,18 @@ function BarraState() {
       <div
         className="container d-flex flex-column justify-content-around align-items-center"
         style={{
-          // border: "1px solid blue",
           height: "51%",
         }}
       >
         <div className="BarraState">
-          <h1>TEMP NUM</h1>
-          <span> °Simbolo C o F</span>
+          <h1>{feelsLikeCelsius}</h1>
+          <span>°C</span>
         </div>
-        <h5>Tiempo Actual de Ciudad</h5>
-        <h6>Today . DiaSemana, Numero Mes</h6>
+        <h5>{current?.weather[0]?.main}</h5>
+        <h6>Today . {dayOfWeek}, {day} {month}</h6>
         <h6>
-          <i className="bi bi-geo-alt-fill"></i>Nombre de Ubicacion
+          <i className="bi bi-geo-alt-fill">
+          </i> {current?.name} 
         </h6>
       </div>
     </>
