@@ -1,6 +1,6 @@
 import React from 'react';
-import useVisibility from './Service/useVisibility';
-import useApiSearch from './Service/useApiSearch';
+import useVisibility from './service/useVisibility';
+import useApiSearch from './service/useApiSearch';
 import './Buscador.css';
 
 function Buscador() {
