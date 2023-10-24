@@ -13,7 +13,6 @@ function PresionAtm() {
         <div className="container d-flex justify-content-center align-items-center gap-2">
           <div className="valor-atm">
             {current?.main?.pressure}
-            {/* {dataWeather && dataWeather.main.pressure} */}
           </div>
           <div>mb</div>
         </div>
