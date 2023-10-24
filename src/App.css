@@ -4,7 +4,7 @@
 
 main {
     display: flex;
-    width: 80%;
+    width: 100%;
     height: 100vh;
     background-color: rgb(151, 136, 136);
   }
@@ -13,7 +13,7 @@ main {
     position: absolute;
     z-index: 4;
     height: 100%;
-    width: 24%;
+    width: 24.6%;
     background-color: rgb(30, 33, 58);
     color: white;
     transition: 1500ms;
@@ -35,14 +35,13 @@ main {
 
   .containerr-right {
     height: 100%;
-    width: 70%;
+    width: 140%;
     background-color: rgb(16, 14, 29);
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    /* height: 100%; */
     padding: 0% 3%;
   }
   
@@ -75,16 +74,14 @@ main {
   
   .bar-State {
     height: 100%;
-    width: 30%;
+    width: 69%;
     background-color: rgb(30, 33, 58);
     color: white;
     overflow: hidden;
   }
   
-                           /* Mobile */
   @media (max-width: 700px) {
-  
-  
+    
     main {
       flex-direction: column;
       width: 100%;
