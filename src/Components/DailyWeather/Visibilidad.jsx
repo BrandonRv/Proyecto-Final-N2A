@@ -1,25 +1,28 @@
-import React from "react";
-//import useVisibility from './Service/useVisibility';
+import React, { useState } from "react";
+// import useApiToday from '../Service/useApiToday';
+import useGeoLocation from '../Service/useGeoLocation';
 import './Visibilidad.css';
 
 function Visibilidad() {
 
-  // const BuscadorV = useVisibility({ data, setInputLoc });
-  // console.log(data);
-
+  const { current } = useGeoLocation();
+ // const data  = useApiToday();
+  const visibilityInKm = (current?.visibility || 0) / 1000;
+  const formattedVisibility = visibilityInKm.toFixed(1);
 
   return (
     <>
+    
       <div id="visibilidad-0" className=" d-flex flex-column justify-content-center align-items-center">
         <div>Visibility</div>
         <div className="container d-flex justify-content-center align-items-center gap-2">
           <div className="valor-visibilidad">
-            Valor Visibilidad
-            {/* {((dataWeather && dataWeather.visibility) / 1000).toFixed(1)} */}
+          {formattedVisibility.toLocaleString()}
           </div>
-          <div>milles</div>
+          <div>Km</div>
         </div>
       </div>
+
     </>
   );
 }
