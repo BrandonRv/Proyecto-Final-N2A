@@ -6,7 +6,7 @@ import Viento from "./Components/DailyWeather/Viento";
 import Humedad from "./Components/DailyWeather/Humedad";
 import Visibilidad from "./Components/DailyWeather/Visibilidad";
 import PresionAtm from "./Components/DailyWeather/PresionAtm";
-import useApiToday from "./Components/Service/useApiToday";
+import useApiToday from "./Components/service/useApiToday";
 import "./App.css";
 
 function App() {
