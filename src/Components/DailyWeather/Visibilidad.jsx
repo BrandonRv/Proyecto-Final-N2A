@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // import useApiToday from '../Service/useApiToday';
-import useGeoLocation from '../Service/useGeoLocation';
+import useGeoLocation from '../service/useGeoLocation';
 import './Visibilidad.css';
 
 function Visibilidad() {
