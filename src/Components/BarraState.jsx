@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import useVisibility from './Service/useVisibility';
 import useGeoLocation from './Service/useGeoLocation';
-import Cloudbackground from "../../public/Cloud-background.png";
+import Cloudbackground from "../assets/Cloud-background.png";
 import "./BarraState.css";
 
 function BarraState() {
@@ -61,7 +61,7 @@ function BarraState() {
           alt="Cloud-background.png"
         />
         <img
-          src={`../../public/${current?.weather[0]?.main}.png`}
+          src={`../assets/${current?.weather[0]?.main}.png`}
           className="tiempo-Icon"
           alt="Weather.png"
         />
