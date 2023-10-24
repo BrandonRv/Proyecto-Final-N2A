@@ -6,8 +6,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: aqua; */
-    /* padding: 0; */
   }
   
   .BarraState>h1 {
@@ -28,9 +26,28 @@
 
   .Nubes-de-Background {
     user-select: none;
-    width: 500px;
+    width: 200%;
     opacity: 0.1;
+    animation: moverCinta 3s linear infinite;
   }
+
+  #cintass{
+
+    .cinta {
+      width: 100%; 
+      overflow: hidden; 
+    }
+}
+
+  @keyframes moverCinta {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
 
 @media (min-width: 701px) and (max-width: 1120px) {
 
@@ -73,7 +90,6 @@
       .Nubes-de-Background {
         margin-top: 50px;
         width: 500px;
-        /* background-color: aqua; */
       }
 
 }
