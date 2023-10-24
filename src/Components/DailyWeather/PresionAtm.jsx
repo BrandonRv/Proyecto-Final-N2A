@@ -1,5 +1,5 @@
 import React from "react";
-import useGeoLocation from '../Service/useGeoLocation';
+import useGeoLocation from '../service/useGeoLocation';
 import './PresionAtm.css';
 
 function PresionAtm() {
