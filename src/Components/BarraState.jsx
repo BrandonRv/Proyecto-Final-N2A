@@ -19,9 +19,7 @@ function BarraState() {
   const feelsLikeCelsius = (current?.main?.feels_like - 273.15).toFixed(0);
 
   function BuscadorX() {
-
     console.log(current)
-    console.log(feelsLikeCelsius);
   }
 
   useEffect(() => {

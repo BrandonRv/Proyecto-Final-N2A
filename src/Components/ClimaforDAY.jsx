@@ -3,20 +3,13 @@ import './ClimaforDAY.css';
 
 function ClimaforDAY(props) {
 
-  console.log(props.fecha) // formato que arroja es asi: 2023-10-28 15:00:00
-  console.log(props.imagenPNG)
-  console.log(props.tempMax)
-  console.log(props.tempMin)
-  console.log(props.simbolo)
-
   const fechaObj = new Date(props.fecha);
   const diasSemana = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
   const diaSemana = diasSemana[fechaObj.getDay()];
   const diaMes = fechaObj.getDate();
   const meses = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
   const mes = meses[fechaObj.getMonth()];
-  // const fechaDiaria = {diaSemana, diaMes, mes}
-  
+
   return (
     <>
       <div

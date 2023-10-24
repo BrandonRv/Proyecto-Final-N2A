@@ -1,0 +1,1 @@
+{dataWeather && dataWeather.main.humidity}

@@ -1,10 +1,15 @@
-import { useState } from "react";
+import React from 'react';
 import useVisibility from './Service/useVisibility';
+import useApiSearch from './Service/useApiSearch';
 import './Buscador.css';
 
 function Buscador() {
-
+  const { inputSearch, inputSearchIn, listaResult, current } = useApiSearch();
   const BuscadorV = useVisibility(true);
+
+  function mostrasResult() {
+    console.log(current)
+  }
 
   return (
     <>
@@ -17,7 +22,6 @@ function Buscador() {
         <div
           className="container d-flex flex-column  p-2 justify-content-start align-items-center"
           style={{
-            // border: "1px solid white",
             width: "86%",
             height: "60%",
           }}
@@ -25,7 +29,6 @@ function Buscador() {
           <div
             className="container d-flex p-0 justify-content-center align-items-center"
             style={{
-              // border: "1px solid red",
               width: "100%",
               gap: "8px",
             }}
@@ -50,8 +53,8 @@ function Buscador() {
                 color: "white",
                 borderRadius: "0",
               }}
-              //   value={inputLoc}
-              //   onChange={inputLocCambio}
+              value={inputSearch}
+              onChange={inputSearchIn}
             />
             <button
               type="button"
@@ -61,12 +64,26 @@ function Buscador() {
                 backgroundColor: "rgb(60, 71, 233)",
                 borderRadius: "0",
               }}
-              //   onClick={OpenUp}
+               onClick={mostrasResult}
             >
               Search
             </button>
           </div>
-          <div className="container d-flex flex-column p-0 justify-content-center align-items-center"></div>
+          <div
+        id='cajabtnResul'
+        className="container d-flex flex-column p-4 justify-content-center align-items-center"
+      >
+        {listaResult.map((result, key) => (
+          <button
+            key={key}
+            className="btnResult"
+            onClick={() => inputSearchIn({ target: { value: result } })}
+          >
+            {result}
+            <i className="bi bi-chevron-compact-right"></i>
+          </button>
+        ))}
+      </div>
         </div>
       </div>
     </>

@@ -8,10 +8,9 @@ function useApiState() {
   const [current, setCurrent]= useState(null);
 
   useEffect(() => {
-    if (lat === null && long === null) return;
 
     const getData = async () => {
-      const link = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${KEY}`;
+      const link = `https://api.openweathermap.org/data/2.5/weather?lat=${lat == undefined ? "4.60971" : lat}&lon=${long == undefined ? "-74.08175" : long}&appid=${KEY}`;
       const res = await fetch(link);
       const data = await res.json();
       

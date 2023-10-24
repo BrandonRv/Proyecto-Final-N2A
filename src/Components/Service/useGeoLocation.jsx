@@ -7,7 +7,7 @@ function useGeoLocation() {
 
   const fetchWeatherData = async (latitude, longitude) => {
     const KEY = "51b373d3e7fd4d6bf55f3c265f7f8cdd";
-    const link = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${KEY}`;
+    const link = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude == undefined ? "4.60971" : latitude}&lon=${longitude == undefined ? "-74.08175" : longitude}&appid=${KEY}`;
     const res = await fetch(link);
     const data = await res.json();
     setCurrent(data);
@@ -22,6 +22,7 @@ function useGeoLocation() {
 
   const handleError = () => {
     console.log("Sin Permisos de Ubicacion");
+    fetchWeatherData()
   };
 
   useEffect(() => {
