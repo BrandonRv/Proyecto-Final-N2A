@@ -4,8 +4,6 @@ function useApiToday() {
   const [latitude1, setLatitude1] = useState(null);
   const [longitude1, setLongitude1] = useState(null);
   const [current, setCurrent] = useState(null);
-  console.log("useToday Lat " + latitude1)
-  console.log("useToday Long " + longitude1)
 
   const fetchWeatherData = async (latitude, longitude) => {
    
@@ -30,11 +28,10 @@ function useApiToday() {
   useEffect(() => {
    
   navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
-
-  }, [latitude1, longitude1]);
   console.log("useToday Lat " + latitude1)
   console.log("useToday Long " + longitude1)
 
+  }, [latitude1, longitude1]);
   return { setLatitude1, setLongitude1, current };
 }
 
