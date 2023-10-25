@@ -61,7 +61,7 @@ function BarraState() {
           alt="Cloud-background.png"
         />
         <img
-          src={`./${current?.weather[0]?.main}.png`}
+          src={`./img/${current?.weather[0]?.main}.png`}
           className="tiempo-Icon"
           alt="Weather.png"
         />
