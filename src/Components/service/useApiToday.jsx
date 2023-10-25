@@ -4,18 +4,22 @@ function useApiToday() {
   const [latitude1, setLatitude1] = useState(null);
   const [longitude1, setLongitude1] = useState(null);
   const [current, setCurrent] = useState(null);
+  console.log("useToday Lat " + latitude1)
+  console.log("useToday Long " + longitude1)
 
-  const fetchWeatherData = async (latitude1, longitude1) => {
+  const fetchWeatherData = async (latitude, longitude) => {
+   
     const KEY = "51b373d3e7fd4d6bf55f3c265f7f8cdd";
-    const link = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude1 == undefined ? "4.60971" : latitude1}&lon=${longitude1 == undefined ? "-74.08175" : longitude1}&appid=${KEY}`;
+    const link = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude == undefined ? "4.60971" : latitude}&lon=${longitude == undefined ? "-74.08175" : longitude}&appid=${KEY}`;
     const res = await fetch(link);
     const data = await res.json();
+    console.log(data)
     setCurrent(data);
   };
 
   const handleSuccess = (data) => {
-    const { latitude1, longitude1 } = data.coords;
-    fetchWeatherData(latitude1, longitude1);
+    const { latitude, longitude } = data.coords;
+    fetchWeatherData(latitude, longitude);
   };
 
   const handleError = () => {
@@ -25,16 +29,11 @@ function useApiToday() {
 
   useEffect(() => {
    
-    if(latitude1 === null && longitude1 === null) { 
-      navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
-    } else {
-      fetchWeatherData(latitude1, longitude1)
-      console.log(latitude1)
-      console.log(longitude1)
-    }
+  navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
 
   }, [latitude1, longitude1]);
-
+  console.log("useToday Lat " + latitude1)
+  console.log("useToday Long " + longitude1)
 
   return { setLatitude1, setLongitude1, current };
 }
