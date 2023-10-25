@@ -42,14 +42,14 @@ function App() {
               className="btn btn-secondary rounded-circle"
               onClick={ConverCoF}
             >
-            {showForm ? '°F' : '°C'}
+            °C
             </button>
             <button
               type="button"
               className="btn btn-secondary rounded-circle"
               onClick={ConverCoF}
             >
-            {showForm ? '°C' : '°F'}
+            °F
             </button>
           </div>
           <div className="container-ClimaXDay">
