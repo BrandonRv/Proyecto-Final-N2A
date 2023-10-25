@@ -11,7 +11,7 @@ import "./App.css";
 
 function App() {
   const { current } = useApiToday();
-  const [showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState(true);
 
   function ConverCoF(){
     setShowForm(!showForm);
