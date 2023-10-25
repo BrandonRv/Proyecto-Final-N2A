@@ -12,7 +12,7 @@ function useApiSearch() {
   useEffect(() => {
     const getData = async () => {
       const KEY = "51b373d3e7fd4d6bf55f3c265f7f8cdd";
-      const link = `http://api.openweathermap.org/geo/1.0/direct?q=${inputSearch}&limit=5&appid=${KEY}`;
+      const link = `https://api.openweathermap.org/geo/1.0/direct?q=${inputSearch}&limit=5&appid=${KEY}`;
       const res = await fetch(link);
       const data = await res.json();
       setCurrent(data);
