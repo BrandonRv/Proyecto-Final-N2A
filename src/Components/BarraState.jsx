@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import useVisibility from './service/useVisibility';
-import useGeoLocation from './service/useGeoLocation';
+import useVisibility from './Service/useVisibility';
+import useGeoLocation from './Service/useGeoLocation';
 import Cloudbackground from "../../public/Cloud-background.png";
 import "./BarraState.css";
 
