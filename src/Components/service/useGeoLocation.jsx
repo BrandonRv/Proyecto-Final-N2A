@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
 function useGeoLocation() {
-  const [lat, setLat] = useState(null);
-  const [long, setLong] = useState(null);
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
   const [current, setCurrent] = useState(null);
 
   const fetchWeatherData = async (latitude, longitude) => {
@@ -15,8 +15,6 @@ function useGeoLocation() {
 
   const handleSuccess = (data) => {
     const { latitude, longitude } = data.coords;
-    setLat(latitude);
-    setLong(longitude);
     fetchWeatherData(latitude, longitude);
   };
 
@@ -26,10 +24,18 @@ function useGeoLocation() {
   };
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
-  }, []);
+   
+    if(latitude === null && longitude === null) { 
+      navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
+    } else {
+      fetchWeatherData(latitude, longitude)
+      console.log(latitude)
+      console.log(longitude)
+    }
 
-  return { lat, long, current };
+  }, [latitude, longitude]);
+
+  return { setLatitude, setLongitude, current };
 }
 
 export default useGeoLocation;
