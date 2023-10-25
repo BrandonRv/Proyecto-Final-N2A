@@ -6,6 +6,9 @@ function useGeoLocation() {
   const [current, setCurrent] = useState(null);
 
   const fetchWeatherData = async (latitude, longitude) => {
+    
+    console.log("useTodayfecht Lat " + latitude)
+    console.log("useTodayfecht Long " + longitude)
     const KEY = "51b373d3e7fd4d6bf55f3c265f7f8cdd";
     const link = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude == undefined ? "4.60971" : latitude}&lon=${longitude == undefined ? "-74.08175" : longitude}&appid=${KEY}`;
     const res = await fetch(link);
@@ -24,15 +27,9 @@ function useGeoLocation() {
   };
 
   useEffect(() => {
-   
-    if(latitude === null && longitude === null) { 
-      navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
-    } else {
-      fetchWeatherData(latitude, longitude)
-      console.log(latitude)
-      console.log(longitude)
-    }
-
+  navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
+  console.log("useGeo Lat " + latitude)
+  console.log("useGeo Long " + longitude)
   }, [latitude, longitude]);
 
   return { setLatitude, setLongitude, current };
