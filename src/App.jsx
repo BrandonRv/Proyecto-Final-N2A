@@ -7,15 +7,20 @@ import Humedad from "./Components/DailyWeather/Humedad";
 import Visibilidad from "./Components/DailyWeather/Visibilidad";
 import PresionAtm from "./Components/DailyWeather/PresionAtm";
 import useApiToday from "./Components/service/useApiToday";
+import useVisualFtoC from "./Components/service/useVisualFtoC";
 import "./App.css";
 
 function App() {
   const { current } = useApiToday();
-  const [showForm, setShowForm] = useState(true);
+  const [isVisible, setVisibility] = useVisualFtoC(true);
 
-  function ConverCtoF(){
-    setShowForm(!showForm);
-  }
+  const converC = () => {
+    setVisibility(true);
+  };
+
+  const converF = () => {
+    setVisibility(false);
+  };
 
   return (
     <>
@@ -26,7 +31,9 @@ function App() {
         <section
           className="bar-State"
         >
-          <BarraState />
+          <BarraState 
+          isVisible={isVisible}
+          />
         </section>
         <div className="containerr-right">
           <div
@@ -40,14 +47,14 @@ function App() {
             <button
               type="button"
               className="btn btn-secondary rounded-circle"
-              onClick={ConverCtoF}
+              onClick={converC}
             >
             °C
             </button>
             <button
               type="button"
               className="btn btn-secondary rounded-circle"
-              onClick={ConverCtoF}
+              onClick={converF}
             >
             °F
             </button>
@@ -56,37 +63,37 @@ function App() {
             <ClimaforDAY
               dia={"Mañana"}
               imagenPNG={`./${current?.list[10]?.weather[0]?.main}.png`}
-              tempMax={showForm ? (current?.list[7]?.main?.temp_max - 273.15).toFixed(0) : ((current?.list[7]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
-              tempMin={showForm ? (current?.list[10]?.main?.temp_min - 273.15).toFixed(0) : ((current?.list[10]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
-              simbolo={showForm ? '°C' : '°F'}
+              tempMax={isVisible ? (current?.list[7]?.main?.temp_max - 273.15).toFixed(0) : ((current?.list[7]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
+              tempMin={isVisible ? (current?.list[10]?.main?.temp_min - 273.15).toFixed(0) : ((current?.list[10]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
+              simbolo={isVisible ? '°C' : '°F'}
             />
             <ClimaforDAY
               fecha={current?.list[15]?.dt_txt}
               imagenPNG={`./${current?.list[18]?.weather[0]?.main}.png`}
-              tempMax= {showForm ? (current?.list[15]?.main?.temp_max - 273.15).toFixed(0) : ((current?.list[15]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
-              tempMin={showForm ? (current?.list[18]?.main?.temp_min - 273.15).toFixed(0) : ((current?.list[18]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
-              simbolo={showForm ? '°C' : '°F'}
+              tempMax={isVisible ? (current?.list[15]?.main?.temp_max - 273.15).toFixed(0) : ((current?.list[15]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
+              tempMin={isVisible ? (current?.list[18]?.main?.temp_min - 273.15).toFixed(0) : ((current?.list[18]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
+              simbolo={isVisible ? '°C' : '°F'}
             />
             <ClimaforDAY
               fecha={current?.list[22]?.dt_txt}
               imagenPNG={`./${current?.list[26]?.weather[0]?.main}.png`}
-              tempMax={showForm ? (current?.list[22]?.main?.temp_max - 273.15).toFixed(0) : ((current?.list[22]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
-              tempMin={showForm ? (current?.list[26]?.main?.temp_min - 273.15).toFixed(0) : ((current?.list[26]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
-              simbolo={showForm ? '°C' : '°F'}
+              tempMax={isVisible ? (current?.list[22]?.main?.temp_max - 273.15).toFixed(0) : ((current?.list[22]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
+              tempMin={isVisible ? (current?.list[26]?.main?.temp_min - 273.15).toFixed(0) : ((current?.list[26]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
+              simbolo={isVisible ? '°C' : '°F'}
             />
             <ClimaforDAY
               fecha={current?.list[31]?.dt_txt}
               imagenPNG={`./${current?.list[34]?.weather[0]?.main}.png`}
-              tempMax={showForm ? (current?.list[31]?.main?.temp_max - 273.15).toFixed(0) : ((current?.list[31]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
-              tempMin={showForm ? (current?.list[34]?.main?.temp_min - 273.15).toFixed(0) : ((current?.list[34]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
-              simbolo={showForm ? '°C' : '°F'}
+              tempMax={isVisible ? (current?.list[31]?.main?.temp_max - 273.15).toFixed(0) : ((current?.list[31]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
+              tempMin={isVisible ? (current?.list[34]?.main?.temp_min - 273.15).toFixed(0) : ((current?.list[34]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
+              simbolo={isVisible ? '°C' : '°F'}
             />
             <ClimaforDAY
               fecha={current?.list[39]?.dt_txt}
               imagenPNG={`./${current?.list[38]?.weather[0]?.main}.png`}
-              tempMax={showForm ? (current?.list[39]?.main?.temp_max - 273.15).toFixed(0) : ((current?.list[39]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
-              tempMin={showForm ? (current?.list[37]?.main?.temp_min - 273.15).toFixed(0) : ((current?.list[37]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
-              simbolo={showForm ? '°C' : '°F'}
+              tempMax={isVisible ? (current?.list[39]?.main?.temp_max - 273.15).toFixed(0) : ((current?.list[39]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
+              tempMin={isVisible ? (current?.list[37]?.main?.temp_min - 273.15).toFixed(0) : ((current?.list[37]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
+              simbolo={isVisible ? '°C' : '°F'}
             />
           </div>
           <div
