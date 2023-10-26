@@ -4,10 +4,11 @@ import useGeoLocation from './service/useGeoLocation';
 import Cloudbackground from "../../public/Cloud-background.png";
 import "./BarraState.css";
 
-function BarraState() {
+function BarraState(props) {
 
   const BuscadorV = useVisibility(false);
   const { current } = useGeoLocation();
+  const { isVisible } = props;
 
   
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -16,7 +17,6 @@ function BarraState() {
   const dayOfWeek = daysOfWeek[currentDate.getDay()];
   const day = currentDate.getDate();
   const month = months[currentDate.getMonth()];
-  const feelsLikeCelsius = (current?.main?.feels_like - 273.15).toFixed(0);
 
   function BuscadorX() {
     console.log(current)
@@ -73,8 +73,8 @@ function BarraState() {
         }}
       >
         <div className="BarraState">
-          <h1>{feelsLikeCelsius}</h1>
-          <span>°C</span>
+          <h1>{isVisible ? (current?.main?.feels_like - 273.15).toFixed(0) : ((current?.main?.feels_like - 273.15)* 9/5 + 32).toFixed(0)}</h1>
+          <span>{isVisible ? "°F" : "°C"}</span>
         </div>
         <h5>{current?.weather[0]?.main}</h5>
         <h6>Today . {dayOfWeek}, {day} {month}</h6>
