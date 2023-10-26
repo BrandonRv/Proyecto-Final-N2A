@@ -73,8 +73,8 @@ function BarraState(props) {
         }}
       >
         <div className="BarraState">
-          <h1>{isVisible ? ((current?.main?.feels_like - 273.15)* 9/5 + 32).toFixed(0) : (current?.main?.feels_like - 273.15).toFixed(0)}</h1> 
-          <span>{isVisible ? "°C" : "°F"}</span>
+          <h1>{isVisible ? (current?.main?.feels_like - 273.15).toFixed(0) : ((current?.main?.feels_like - 273.15)* 9/5 + 32).toFixed(0)}</h1> 
+          <span>{isVisible ? "°F" : "°C"}</span>
         </div>
         <h5>{current?.weather[0]?.main}</h5>
         <h6>Today . {dayOfWeek}, {day} {month}</h6>
