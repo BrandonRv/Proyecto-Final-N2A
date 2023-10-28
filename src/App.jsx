@@ -6,12 +6,12 @@ import Viento from "./Components/DailyWeather/Viento";
 import Humedad from "./Components/DailyWeather/Humedad";
 import Visibilidad from "./Components/DailyWeather/Visibilidad";
 import PresionAtm from "./Components/DailyWeather/PresionAtm";
-import useApiToday from "./Components/service/useApiToday";
+import { useWeatherContext } from './context/WeatherProvider';
 import useVisualFtoC from "./Components/service/useVisualFtoC";
 import "./App.css";
 
 function App() {
-  const { current } = useApiToday();
+ const { current2 } = useWeatherContext();
   const [isVisible, setVisibility] = useVisualFtoC(true);
 
   const converC = () => {
@@ -62,37 +62,37 @@ function App() {
           <div className="container-ClimaXDay">
             <ClimaforDAY
               dia={"Mañana"}
-              imagenPNG={`./${current?.list[10]?.weather[0]?.main}.png`}
-              tempMax={isVisible ? (current?.list[7]?.main?.temp_max - 273.15).toFixed(0) : ((current?.list[7]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
-              tempMin={isVisible ? (current?.list[10]?.main?.temp_min - 273.15).toFixed(0) : ((current?.list[10]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
+              imagenPNG={`./${current2?.list[10]?.weather[0]?.main}.png`}
+              tempMax={isVisible ? (current2?.list[7]?.main?.temp_max - 273.15).toFixed(0) : ((current2?.list[7]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
+              tempMin={isVisible ? (current2?.list[10]?.main?.temp_min - 273.15).toFixed(0) : ((current2?.list[10]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
               simbolo={isVisible ? '°C' : '°F'}
             />
             <ClimaforDAY
-              fecha={current?.list[15]?.dt_txt}
-              imagenPNG={`./${current?.list[18]?.weather[0]?.main}.png`}
-              tempMax={isVisible ? (current?.list[15]?.main?.temp_max - 273.15).toFixed(0) : ((current?.list[15]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
-              tempMin={isVisible ? (current?.list[18]?.main?.temp_min - 273.15).toFixed(0) : ((current?.list[18]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
+              fecha={current2?.list[15]?.dt_txt}
+              imagenPNG={`./${current2?.list[18]?.weather[0]?.main}.png`}
+              tempMax={isVisible ? (current2?.list[15]?.main?.temp_max - 273.15).toFixed(0) : ((current2?.list[15]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
+              tempMin={isVisible ? (current2?.list[18]?.main?.temp_min - 273.15).toFixed(0) : ((current2?.list[18]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
               simbolo={isVisible ? '°C' : '°F'}
             />
             <ClimaforDAY
-              fecha={current?.list[22]?.dt_txt}
-              imagenPNG={`./${current?.list[26]?.weather[0]?.main}.png`}
-              tempMax={isVisible ? (current?.list[22]?.main?.temp_max - 273.15).toFixed(0) : ((current?.list[22]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
-              tempMin={isVisible ? (current?.list[26]?.main?.temp_min - 273.15).toFixed(0) : ((current?.list[26]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
+              fecha={current2?.list[22]?.dt_txt}
+              imagenPNG={`./${current2?.list[26]?.weather[0]?.main}.png`}
+              tempMax={isVisible ? (current?.list[22]?.main?.temp_max - 273.15).toFixed(0) : ((current2?.list[22]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
+              tempMin={isVisible ? (current?.list[26]?.main?.temp_min - 273.15).toFixed(0) : ((current2?.list[26]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
               simbolo={isVisible ? '°C' : '°F'}
             />
             <ClimaforDAY
-              fecha={current?.list[31]?.dt_txt}
-              imagenPNG={`./${current?.list[34]?.weather[0]?.main}.png`}
-              tempMax={isVisible ? (current?.list[31]?.main?.temp_max - 273.15).toFixed(0) : ((current?.list[31]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
-              tempMin={isVisible ? (current?.list[34]?.main?.temp_min - 273.15).toFixed(0) : ((current?.list[34]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
+              fecha={current2?.list[31]?.dt_txt}
+              imagenPNG={`./${current2?.list[34]?.weather[0]?.main}.png`}
+              tempMax={isVisible ? (current2?.list[31]?.main?.temp_max - 273.15).toFixed(0) : ((current2?.list[31]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
+              tempMin={isVisible ? (current2?.list[34]?.main?.temp_min - 273.15).toFixed(0) : ((current2?.list[34]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
               simbolo={isVisible ? '°C' : '°F'}
             />
             <ClimaforDAY
               fecha={current?.list[39]?.dt_txt}
-              imagenPNG={`./${current?.list[38]?.weather[0]?.main}.png`}
-              tempMax={isVisible ? (current?.list[39]?.main?.temp_max - 273.15).toFixed(0) : ((current?.list[39]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
-              tempMin={isVisible ? (current?.list[37]?.main?.temp_min - 273.15).toFixed(0) : ((current?.list[37]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
+              imagenPNG={`./${current2?.list[38]?.weather[0]?.main}.png`}
+              tempMax={isVisible ? (current2?.list[39]?.main?.temp_max - 273.15).toFixed(0) : ((current2?.list[39]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
+              tempMin={isVisible ? (current2?.list[37]?.main?.temp_min - 273.15).toFixed(0) : ((current2?.list[37]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
               simbolo={isVisible ? '°C' : '°F'}
             />
           </div>
