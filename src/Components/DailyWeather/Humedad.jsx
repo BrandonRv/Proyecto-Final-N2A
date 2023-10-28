@@ -1,17 +1,17 @@
 import React from "react";
-import useGeoLocation from '../service/useGeoLocation';
+import { useWeatherContext } from '../../context/WeatherProvider';
 import './Humedad.css';
 
 function Humedad() {
 
-  const { current } = useGeoLocation();
+ const { current1 } =  useWeatherContext();
 
   return (
     <>
       <div id="humedad-0" className=" d-flex flex-column justify-content-center align-items-center">
         <div>Humidity</div>
         <div className="container d-flex justify-content-center align-items-center gap-2">
-          <div className="valor-humedad">{current?.main?.humidity}</div>
+          <div className="valor-humedad">{current1?.main?.humidity}</div>
           <div>%</div>
         </div>
         <div className="container d-flex flex-column" style={{ width: "85%" }}>
@@ -32,7 +32,7 @@ function Humedad() {
             <div
               className="progress-bar progress-bar-striped bg-warning progress-bar-animated"
               style={{
-                width: `${current?.main?.humidity}%`,
+                width: `${current1?.main?.humidity}%`,
               }}
             ></div>
           </div>
