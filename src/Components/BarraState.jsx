@@ -11,7 +11,7 @@ function BarraState(props) {
   const { isVisible } = props;
 
   
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const currentDate = (new Date());
   const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
   const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
   const dayOfWeek = daysOfWeek[currentDate.getDay()];
