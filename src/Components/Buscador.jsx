@@ -1,26 +1,12 @@
 import React from 'react';
 import useVisibility from './service/useVisibility';
-import useApiSearch from './service/useApiSearch';
-import useGeoLocation from './service/useGeoLocation';
-import useApiToday from "./service/useApiToday";
+import { useWeatherContext } from '../context/WeatherProvider';
 import './Buscador.css';
 
 function Buscador() {
-  const { inputSearch, inputSearchIn, listaResult, current } = useApiSearch();
-  const { setLatitude, setLongitude } = useGeoLocation();
-  const { setLatitude1, setLongitude1 } = useApiToday();
   
-  const BuscadorV = useVisibility(true);
-
-  function mostrasResult() {
-
-    setLatitude(current[0]?.lat)
-    setLongitude(current[0]?.lon)
-    setLatitude1(current[0]?.lat)
-    setLongitude1(current[0]?.lon)
-    
-
-  }
+const { inputSearch, inputSearchIn, listaResult, mostrasResult } = useWeatherContext();
+const BuscadorV = useVisibility(true);
 
   return (
     <>
