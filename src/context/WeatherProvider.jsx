@@ -35,6 +35,7 @@ export const WeatherProvider = ({ children }) => {
 
   const handleError = () => {
     console.log("Sin permisos de ubicación");
+    window.alert("Sin Permisos de Ubicacion");
   };
 
   useEffect(() => {
