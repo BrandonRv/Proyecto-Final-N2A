@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-// import useApiToday from '../Service/useApiToday';
-import useGeoLocation from '../service/useGeoLocation';
+import React from "react";
+import { useWeatherContext } from '../../context/WeatherProvider';
 import './Visibilidad.css';
 
 function Visibilidad() {
 
-  const { current } = useGeoLocation();
- // const data  = useApiToday();
-  const visibilityInKm = (current?.visibility || 0) / 1000;
+  const { current1 } = useWeatherContext();
+  const visibilityInKm = (current1?.visibility || 0) / 1000;
   const formattedVisibility = visibilityInKm.toFixed(1);
 
   return (
