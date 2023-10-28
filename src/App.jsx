@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import Buscador from "./Components/Buscador";
 import BarraState from "./Components/BarraState";
 import ClimaforDAY from "./Components/ClimaforDAY";
