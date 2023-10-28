@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
+import React from 'react';
 import useVisibility from './service/useVisibility';
-import useGeoLocation from './service/useGeoLocation';
+import { useWeatherContext } from '../context/WeatherProvider';
 import Cloudbackground from "../../public/Cloud-background.png";
 import "./BarraState.css";
 
 function BarraState(props) {
 
   const BuscadorV = useVisibility(false);
-  const { current } = useGeoLocation();
+ const { geoPosition, current1 } = useWeatherContext();
   const { isVisible } = props;
 
   
@@ -18,18 +18,6 @@ function BarraState(props) {
   const day = currentDate.getDate();
   const month = months[currentDate.getMonth()];
 
-  function BuscadorX() {
-    console.log(current)
-  }
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentDate(new Date());
-    }, 1000);
-
-    return () => clearInterval(intervalId);
-  }, []);
-  
   return (
     <>
       <div className="container p-4 d-flex justify-content-between">
@@ -43,7 +31,7 @@ function BarraState(props) {
         <button
           type="button"
           className="btn btn-secondary rounded-circle"
-          onClick={BuscadorX}
+          onClick={geoPosition}
         >
           <i className="bi bi-geo-alt-fill"></i>
         </button>
@@ -61,7 +49,7 @@ function BarraState(props) {
           alt="Cloud-background.png"
         />
         <img
-          src={`./img/${current?.weather[0]?.main}.png`}
+          src={`./img/${current1?.weather[0]?.main}.png`}
           className="tiempo-Icon"
           alt="Weather.png"
         />
@@ -73,14 +61,14 @@ function BarraState(props) {
         }}
       >
         <div className="BarraState">
-          <h1>{isVisible ? (current?.main?.feels_like - 273.15).toFixed(0) : ((current?.main?.feels_like - 273.15)* 9/5 + 32).toFixed(0)}</h1> 
+          <h1>{isVisible ? (current1?.main?.feels_like - 273.15).toFixed(0) : ((current1?.main?.feels_like - 273.15)* 9/5 + 32).toFixed(0)}</h1> 
           <span>{isVisible ? "°C" : "°F"}</span>
         </div>
-        <h5>{current?.weather[0]?.main}</h5>
+        <h5>{current1?.weather[0]?.main}</h5>
         <h6>Today . {dayOfWeek}, {day} {month}</h6>
         <h6>
           <i className="bi bi-geo-alt-fill">
-          </i> {current?.name} 
+          </i> {current1?.name} 
         </h6>
       </div>
     </>
