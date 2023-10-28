@@ -68,28 +68,28 @@ function App() {
               simbolo={isVisible ? '°C' : '°F'}
             />
             <ClimaforDAY
-              fecha={current2?.list[15]?.dt_txt}
+              fecha={current2?.list[6]?.dt_txt}
               imagenPNG={`./${current2?.list[18]?.weather[0]?.main}.png`}
               tempMax={isVisible ? (current2?.list[15]?.main?.temp_max - 273.15).toFixed(0) : ((current2?.list[15]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
               tempMin={isVisible ? (current2?.list[18]?.main?.temp_min - 273.15).toFixed(0) : ((current2?.list[18]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
               simbolo={isVisible ? '°C' : '°F'}
             />
             <ClimaforDAY
-              fecha={current2?.list[22]?.dt_txt}
+              fecha={current2?.list[14]?.dt_txt}
               imagenPNG={`./${current2?.list[26]?.weather[0]?.main}.png`}
               tempMax={isVisible ? (current2?.list[22]?.main?.temp_max - 273.15).toFixed(0) : ((current2?.list[22]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
               tempMin={isVisible ? (current2?.list[26]?.main?.temp_min - 273.15).toFixed(0) : ((current2?.list[26]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
               simbolo={isVisible ? '°C' : '°F'}
             />
             <ClimaforDAY
-              fecha={current2?.list[31]?.dt_txt}
+              fecha={current2?.list[22]?.dt_txt}
               imagenPNG={`./${current2?.list[34]?.weather[0]?.main}.png`}
               tempMax={isVisible ? (current2?.list[31]?.main?.temp_max - 273.15).toFixed(0) : ((current2?.list[31]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
               tempMin={isVisible ? (current2?.list[34]?.main?.temp_min - 273.15).toFixed(0) : ((current2?.list[34]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
               simbolo={isVisible ? '°C' : '°F'}
             />
             <ClimaforDAY
-              fecha={current2?.list[39]?.dt_txt}
+              fecha={current2?.list[30]?.dt_txt}
               imagenPNG={`./${current2?.list[38]?.weather[0]?.main}.png`}
               tempMax={isVisible ? (current2?.list[39]?.main?.temp_max - 273.15).toFixed(0) : ((current2?.list[39]?.main?.temp_max - 273.15) * 9/5 + 32).toFixed(0)}
               tempMin={isVisible ? (current2?.list[37]?.main?.temp_min - 273.15).toFixed(0) : ((current2?.list[37]?.main?.temp_min - 273.15) * 9/5 + 32).toFixed(0)}
