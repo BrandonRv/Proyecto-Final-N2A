@@ -1,11 +1,11 @@
 import React from "react";
-import useGeoLocation from '../service/useGeoLocation';
+import { useWeatherContext } from '../../context/WeatherProvider';
 import './Viento.css';
 
 function Viento() {
 
-  const { current } = useGeoLocation();
-  const speedInKmph = (current?.wind?.speed * 3.6).toFixed(1);
+  const { current1 } = useWeatherContext();
+  const speedInKmph = (current1?.wind?.speed * 3.6).toFixed(1);
 
   return (
     <>
@@ -18,7 +18,7 @@ function Viento() {
         <div className="container d-flex justify-content-center align-items-center gap-2 ">
           <div
             style={{
-              transform: `rotate(${(current?.wind?.deg)+ 105}deg)`,
+              transform: `rotate(${(current1?.wind?.deg)+ 105}deg)`,
               height: "25px",
               width: "25px",
             }}
