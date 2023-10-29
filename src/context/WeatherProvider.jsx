@@ -42,17 +42,17 @@ export const WeatherProvider = ({ children }) => {
 
     const fetchWeatherData = async () => {
       const KEY = "51b373d3e7fd4d6bf55f3c265f7f8cdd";
-      const link3 = `https://api.openweathermap.org/geo/1.0/direct?q=${inputSearch === undefined ? "Bogota Capital District - Municipality" : inputSearch}&limit=5&appid=${KEY}`;
+      const link3 = `https://api.openweathermap.org/geo/1.0/direct?q=${inputSearch === undefined ? "Bogota" : inputSearch}&limit=5&appid=${KEY}`;
       const res3 = await fetch(link3);
       const data = await res3.json();
       setLatitude(data[0]?.lat);
       setLongitude(data[0]?.lon);
       setCurrent3(data);
-      const link1 = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude === undefined ? "4.6534649" : latitude}&lon=${longitude === undefined ? "-74.0836453" : longitude}&appid=${KEY}`;
+      const link1 = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude === undefined ? "4.60971" : latitude}&lon=${longitude === undefined ? "-74.08175" : longitude}&appid=${KEY}`;
       const res1 = await fetch(link1);
       const data1 = await res1.json();
       setCurrent1(data1);
-      const link2 = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude === undefined ? "4.6534649" : latitude}&lon=${longitude === undefined ? "-74.0836453" : longitude}&appid=${KEY}`;
+      const link2 = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude === undefined ? "4.60971" : latitude}&lon=${longitude === undefined ? "-74.08175" : longitude}&appid=${KEY}`;
       const res2 = await fetch(link2);
       const data2 = await res2.json();
       setCurrent2(data2);
