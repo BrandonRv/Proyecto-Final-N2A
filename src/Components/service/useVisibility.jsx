@@ -10,7 +10,8 @@ function useVisibility(props) {
 
     if (agregarList) {
       agregarList.classList.toggle('activ', isVisible);
-      agregarList.style.display = isVisible ? 'none' : 'block';
+      agregarList.style.transition = isVisible ? '1500ms' : "1500ms";
+      agregarList.style.transform = isVisible ? 'translateY(-100%)' : "translateY(0%)";
     } 
   };
 
